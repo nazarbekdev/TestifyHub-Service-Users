@@ -9,13 +9,13 @@ JAZZMIN_SETTINGS = {
     "site_brand": "TestifyHub",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "image/camtest.jpg",
+    "site_logo": "logo.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "image/camtest.jpg",
+    "login_logo": "logo.png",
 
     # Logo to use for login form in dark themes (defaults to login_logo)
-    "login_logo_dark": "image/camtest.jpg",
+    "login_logo_dark": "logo.png",
 
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
