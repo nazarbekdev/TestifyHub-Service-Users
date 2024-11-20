@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (CallNumberView, GenerateTestView, CamTestUserView, DownloadFileAPIView, DownloadSheetFileAPIView,
+from .views import (GenerateTestView, CamTestUserView, DownloadFileAPIView, DownloadSheetFileAPIView,
                     GenerateTestDefaultKey, UploadDocumentView, UploadFileWithImageView, LanguagesView, SubjectsView,
                     UserInfo, CheckSheetView, DatabaseTypeView, DownloadTitulView, TitulUploadAPIView,
                     UserTestFilesView, UserCheckedFilesView, BotUserView, BotUserInfo,
@@ -14,9 +14,8 @@ urlpatterns = [
     path('languages', LanguagesView.as_view(), name='languages'),  # mobile
     path('download-generated-file/<int:user_id>', DownloadFileAPIView.as_view(), name='download_user_file'),  # mobile
     path('download-checked-sheet/<str:user_name>', DownloadSheetFileAPIView.as_view(), name='download_user_file'),  # mobile
-    path('camtest-user', CamTestUserView.as_view(), name='camtest_user'),  # mobile
+    path('service-user', CamTestUserView.as_view(), name='camtest_user'),  # mobile
     path('user-info/<int:id>', UserInfo.as_view(), name='user_info'),  # mobile
-    path('call-number', CallNumberView.as_view(), name='call_number'),  # mobile
     path('check-sheet', CheckSheetView.as_view(), name='check_sheet'),  # mobile
     path('database-type', DatabaseTypeView.as_view(), name='database_type'),  # mobile
     path('download-titul', DownloadTitulView.as_view(), name='download_titul'),  # mobile
