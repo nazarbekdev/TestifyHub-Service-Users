@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from service.models import Document, Subject, GenerateTest, Language, ServiceUser, CallNumber, CheckSheet, GenerateTestData, \
-    DatabaseType, TitulUpload,CheckSheetResult
+    DatabaseType, TitulUpload, CheckSheetResult
 from service.models import UserFile, BotUser
 
 

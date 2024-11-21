@@ -3,11 +3,11 @@ from rest_framework.views import APIView
 from service.models import ServiceUser
 
 """
-    Bu Api CamTest apk ga birinchi bor tashfif buyurgan foydalanuvchilarni ro'yxatga olish uchun.
+    Bu Api TestifyHub ga birinchi bor tashfif buyurgan foydalanuvchilarni ro'yxatga olish uchun.
 """
 
 
-class CamTestUserView(APIView):
+class ServiceTestUserView(APIView):
 
     def post(self, request):
         user_name = ServiceUser.objects.latest('id')

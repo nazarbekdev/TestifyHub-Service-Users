@@ -117,6 +117,4 @@ def score_calculator(compulsory_sub_ans, sub1_ans, sub2_ans, language, blok1, bl
             'lan_status': 3,
             'description': ""
         }
-        print('Result:>>>', result)
         return result
-

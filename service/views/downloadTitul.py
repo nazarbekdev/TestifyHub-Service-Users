@@ -9,7 +9,7 @@ from django.http import HttpResponse
 
 class DownloadTitulView(APIView):
     def get(self, request):
-        file_path = '/Users/uzmacbook/Portfolio/CamTest-admin/media/files/template.pdf'
+        file_path = '/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/template.pdf'
         file_name = 'files/template.pdf'
         with open(file_path, 'rb') as file:
             response = HttpResponse(file.read(), content_type='application/pdf')

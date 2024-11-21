@@ -8,7 +8,8 @@ class Result:
         self.path = path
         # imread RGB
         self.image = cv2.cvtColor(cv2.imread(f'/Users/uzmacbook/Portfolio/CamTest-admin{path}'), cv2.COLOR_BGR2RGB)
-        self.temp_image = cv2.cvtColor(cv2.imread('/Users/uzmacbook/Portfolio/CamTest-admin/media/files/template.jpg'), cv2.COLOR_BGR2RGB)
+        self.temp_image = cv2.cvtColor(cv2.imread('/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/template'
+                                                  '.jpg'), cv2.COLOR_BGR2RGB)
 
     def kernel(self, size):
         return np.ones((size, size), np.uint8)

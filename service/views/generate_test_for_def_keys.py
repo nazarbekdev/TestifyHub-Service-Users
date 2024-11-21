@@ -15,10 +15,15 @@ from service.functions.placement_of_numbers import placement_of_numbers
 from service.functions.revome_file import revome_file
 from service.models import Question, Subject, AnswerTest, UserFile, ServiceUser, GenerateTestData, Language, Key, TestControl
 from service.serializers import TestGeneratePDFSerializer
+from dotenv import load_dotenv
+
+load_dotenv()
 
 """
     Bu Api foydalanuvchi tomonidan talab qilingan fanlan majmuasi uchun test generatsiya qilish uchun.
 """
+
+project_path = os.getenv('PROJECT_PATH')
 
 # Matnlar uchun yozuv turi
 styles = getSampleStyleSheet()
@@ -52,7 +57,7 @@ class GenerateTestDefaultKey(GenericAPIView):
     def get_test_questions(self, language, database_type, subject_id, subject):
         all_tests = []
         for index, value in enumerate(subject):
-            if value['category_id'] not in (72, 73, 74, 75):
+            if value['category_id'] not in (72, 73, 74, 75):  # O'zgaradi !!!
                 tests = list(Question.objects.filter(language_id=language, database_type_id=database_type,
                                                      subject_id=subject_id,
                                                      subject_category_id=value['category_id']).order_by('?')[
@@ -356,7 +361,7 @@ class GenerateTestDefaultKey(GenericAPIView):
                             elements.append(Paragraph(test_text, custom_style))
 
                             if test.image:
-                                test_image = Image(f'/Users/uzmacbook/Portfolio/CamTest-admin/media/{test.image}', width=120, height=70)
+                                test_image = Image(f'{project_path}/media/{test.image}', width=120, height=70)
                                 elements.append(Spacer(1, 10))
                                 elements.append(test_image)
                                 elements.append(Spacer(1, 15))
@@ -469,7 +474,7 @@ class GenerateTestDefaultKey(GenericAPIView):
                             elements.append(Spacer(1, 3))
                             elements.append(Paragraph(test_text, custom_style))
                             elements.append(Spacer(1, 5))
-                            test_image = Image(f'/Users/uzmacbook/Portfolio/CamTest-admin/{test.image}', width=200,
+                            test_image = Image(f'{project_path}/{test.image}', width=200,
                                                height=120)
                             elements.append(test_image)
                             elements.append(Spacer(1, 10))
@@ -507,7 +512,7 @@ class GenerateTestDefaultKey(GenericAPIView):
         # Barcha generatsiya bo'lgan test fayllarini birlashtirish
         test_book_name = (f'{datetime.now().year}{datetime.now().month}{datetime.now().day}{datetime.now().hour}'
                           f'{datetime.now().minute}{datetime.now().second}')
-        merge_pdf(all_tests, f'/Users/uzmacbook/Portfolio/CamTest-admin/media/userfile/'
+        merge_pdf(all_tests, f'{project_path}/media/userfile/'
                              f'{test_book_name}.pdf')
         data = UserFile(user=user, file=f'userfile/{test_book_name}.pdf')
         data.save()

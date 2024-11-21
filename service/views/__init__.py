@@ -1,5 +1,4 @@
-from .call_number import CallNumberView
-from .cam_test_user import CamTestUserView
+from .service_test_user import ServiceTestUserView
 from .check_sheet import CheckSheetView
 from .download_sheet import DownloadSheetFileAPIView
 from .download_file import DownloadFileAPIView

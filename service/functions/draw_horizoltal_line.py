@@ -28,11 +28,11 @@ def draw_horizontal_line(pdf_path, output_path, book_code):
         page.insert_text((20, 12), page_number_text, fontsize=10, color=line_color)
 
         # Cam Test
-        text = 'CamTest'
+        text = 'TestifyHub'
         page.insert_text((width - 60, 12), text, fontsize=10, color=line_color)
 
         # Talabalik sari olg'a!
-        page_text = "Talabalik sari olg'a!"
+        page_text = "Biz bilan yanada osonroq!"
         page.insert_text((width / 2 - 40, 12), page_text, fontsize=10, color=line_color)
 
         # O'rtasidan vertikal chiziq

@@ -55,7 +55,7 @@ class DocumentAdmin(admin.ModelAdmin):
 
 class QuestionAdmin(admin.ModelAdmin):
     search_fields = ('question',)
-    list_display = ('id', 'question', 'subject_id', 'subject_category_id', 'language_id', 'database_type_id')
+    list_display = ('question', 'subject_id', 'subject_category_id', 'language_id', 'database_type_id', 'id')
     list_filter = ('subject_id', 'subject_category_id')
     date_hierarchy = 'created_at'
 

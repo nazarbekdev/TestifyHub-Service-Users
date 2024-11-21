@@ -18,8 +18,6 @@ class DownloadSheetFileAPIView(APIView):
             return Response({'success': False, 'message': "Foydalanuvchi uchun fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
 
         file_path = user_file.file.path
-        print(file_path)
-        print(user_file.file.name)
         with open(file_path, 'rb') as file:
             response = HttpResponse(file.read(), content_type='application/pdf')
             response['Content-Disposition'] = f'attachment; filename="{user_file.file.name}"'

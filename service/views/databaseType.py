@@ -5,7 +5,7 @@ from service.serializers import DatabaseTypeSerializer
 
 
 """
-    Bu Api barcha fanlarni qaytarish uchun.
+    Bu Api databaselarni qaytarish uchun.
 """
 
 
