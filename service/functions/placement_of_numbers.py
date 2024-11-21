@@ -1,6 +1,13 @@
+import os
+
 import fitz  # PyMuPDF
 import random
 from service.functions.qr_code import qr_code_img
+from dotenv import load_dotenv
+
+load_dotenv()
+
+project_path = os.getenv('PROJECT_PATH')
 
 """
     Bu funksiya: DTM muqova faylini shakklantirish uchun qo'llaniladi.
@@ -9,8 +16,8 @@ from service.functions.qr_code import qr_code_img
 
 
 def placement_of_numbers(subject1, subject2):
-    pdf_path = '/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/files_Cam-Test-Javoblar-varaqasi_UfXAgF0.pdf'
-    image_path = '/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/2024-06-29 08.38.38.jpg'
+    pdf_path = f'{project_path}/media/files/files_Cam-Test-Javoblar-varaqasi_UfXAgF0.pdf'
+    image_path = f'{project_path}/media/files/2024-06-29 08.38.38.jpg'
 
     pdf_page = fitz.open(pdf_path)
     page = pdf_page[0]
@@ -173,14 +180,14 @@ def placement_of_numbers(subject1, subject2):
 
     rect_apk = fitz.Rect(x5 - 25, y5 + 90, x5 + 40, y5 + 150)
 
-    image_apk_path = '/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/qr_code_apk.png'
+    image_apk_path = f'{project_path}/media/files/qr_code_apk.png'
 
     page.insert_image(rect_apk, filename=image_apk_path)
     page.insert_image(rect, filename=qr_code_image)
 
-    pdf_page.save('/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/muqova.pdf')
+    pdf_page.save(f'{project_path}/media/files/muqova.pdf')
     pdf_page.close()
 
-    result = ['/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/muqova.pdf', book_number]
+    result = [f'{project_path}/media/files/muqova.pdf', book_number]
 
     return result

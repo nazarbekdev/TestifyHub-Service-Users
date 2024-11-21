@@ -1,14 +1,20 @@
+import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from dotenv import load_dotenv
+
+load_dotenv()
+
+project_path = os.getenv('PROJECT_PATH')
 
 
 class Result:
     def __init__(self, path: str):
         self.path = path
         # imread RGB
-        self.image = cv2.cvtColor(cv2.imread(f'/Users/uzmacbook/Portfolio/CamTest-admin{path}'), cv2.COLOR_BGR2RGB)
-        self.temp_image = cv2.cvtColor(cv2.imread('/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/template'
+        self.image = cv2.cvtColor(cv2.imread(f'{project_path}{path}'), cv2.COLOR_BGR2RGB)
+        self.temp_image = cv2.cvtColor(cv2.imread(f'{project_path}/media/files/template'
                                                   '.jpg'), cv2.COLOR_BGR2RGB)
 
     def kernel(self, size):

@@ -1,10 +1,14 @@
+import os
+import shutil
 from fpdf import FPDF
-import requests
 from datetime import datetime
 from service.functions.qr_code import qr_code_img
 from service.functions.score_calculation import score_calculator
-import shutil
-import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+project_path = os.getenv('PROJECT_PATH')
 
 
 class PDF(FPDF):
@@ -91,11 +95,11 @@ class PDF(FPDF):
                 _a, _b = 180, 191
             if item[1] == 1:
                 pdf.text(_a, ans_cor, txt=f"{counter}.  {item[0]}")
-                pdf.image('/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/correct.png', x=_b, y=ans_cor - 3, w=3, h=3)
+                pdf.image(f'{project_path}/media/files/correct.png', x=_b, y=ans_cor - 3, w=3, h=3)
             else:
                 answ = item[0]
                 pdf.text(_a, ans_cor, txt=f"{counter}.  {answ}")
-                pdf.image('/Users/uzmacbook/Portfolio/TestifyHub-Service/media/files/wrong.png', x=_b, y=ans_cor - 3, w=3, h=3)
+                pdf.image(f'{project_path}/media/files/wrong.png', x=_b, y=ans_cor - 3, w=3, h=3)
             ans_cor += 5
             counter += 1
         d = datetime.now().day
@@ -105,7 +109,7 @@ class PDF(FPDF):
         date = f"{d}{h}{m}{s}"
         file_name = f"{blok_1}-{blok_2}{date}.pdf"
         temp_pdf_path = os.path.join("/tmp", file_name)
-        final_pdf_path = os.path.join("/Users/uzmacbook/Portfolio/TestifyHub-Service/media/check_file/outputfile/", file_name)
+        final_pdf_path = os.path.join(f"{project_path}/media/check_file/outputfile/", file_name)
 
         try:
             pdf.output(temp_pdf_path)
