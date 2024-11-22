@@ -100,7 +100,6 @@ JAZZMIN_SETTINGS = {
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
         'Service.ServiceUser': 'fas fa-users',
-        'Service.CallNumber': 'fas fa-phone',
         'Service.AnswerTest': 'fas fa-file-alt',
         'Service.Document': 'fas fa-file',
         'Service.Language': 'fas fa-globe',
