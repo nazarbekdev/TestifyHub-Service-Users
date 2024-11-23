@@ -115,6 +115,7 @@ JAZZMIN_SETTINGS = {
         'Service.CheckSheet': 'fas fa-list-alt',
         'Service.CheckSheetResult': 'fas fa-check-circle',
     },
+
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
