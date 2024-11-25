@@ -5,7 +5,6 @@ class ServiceUser(models.Model):
     name = models.CharField(max_length=255)
     limit = models.IntegerField(default=50)
     status = models.BooleanField(default=False)
-    play_market = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -22,13 +21,6 @@ class BotUser(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class CallNumber(models.Model):
-    number = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.number
 
 
 class Language(models.Model):

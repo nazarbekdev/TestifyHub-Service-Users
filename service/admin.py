@@ -1,11 +1,7 @@
 from django.contrib import admin
-from service.models import (Document, Question, Subject, Language, GenerateTest, ServiceUser, AnswerTest, UserFile, CallNumber,
-                        Key, CheckSheet, CheckSheetResult, DatabaseType, GenerateTestData, TestControl, SubjectCategory,
-                        BotUser)
-
-
-class CallNumberAdmin(admin.ModelAdmin):
-    list_display = ('id', 'number')
+from service.models import (Document, Question, Subject, Language, GenerateTest, ServiceUser, AnswerTest, UserFile,
+                            Key, CheckSheet, CheckSheetResult, DatabaseType, GenerateTestData, TestControl,
+                            SubjectCategory, BotUser)
 
 
 class LanguageAdmin(admin.ModelAdmin):
@@ -97,7 +93,6 @@ admin.site.register(Language, LanguageAdmin)
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(AnswerTest, AnswerTestAdmin)
 admin.site.register(CheckSheet, CheckSheetAdmin)
-admin.site.register(CallNumber, CallNumberAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register((GenerateTest,))
 admin.site.register(GenerateTestData, GenerateTestDataAdmin)

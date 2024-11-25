@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from service.models import Document, Subject, GenerateTest, Language, ServiceUser, CallNumber, CheckSheet, GenerateTestData, \
+from service.models import Document, Subject, GenerateTest, Language, ServiceUser, CheckSheet, GenerateTestData, \
     DatabaseType, TitulUpload, CheckSheetResult
 from service.models import UserFile, BotUser
 
@@ -17,18 +17,11 @@ class BotUserSerializer(serializers.ModelSerializer):
         # read_only_fields = ('checked_file',)
 
 
-class CallNumberSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CallNumber
-        fields = '__all__'
-
 
 class SubjectSerializer(serializers.ModelSerializer):
-    categories = serializers.SerializerMethodField()
-
     class Meta:
         model = Subject
-        fields = ['id', 'name', 'categories']
+        fields = '__all__'
 
 
 class DocumentSerializer(serializers.ModelSerializer):
