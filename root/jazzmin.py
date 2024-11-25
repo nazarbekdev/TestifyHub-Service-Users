@@ -109,6 +109,7 @@ JAZZMIN_SETTINGS = {
         'Service.Question': 'fas fa-question-circle',
         'Service.SubjectCategory': 'fas fa-folder-open',
         'Service.Key': 'fas fa-key',
+        'Service.BotUser': 'fas fa-robot',
         'Service.GenerateTestData': 'fas fa-vial',
         'Service.TestControl': 'fas fa-tasks',
         'Service.DatabaseType': 'fas fa-database',
