@@ -1,20 +1,23 @@
+from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.mixins import CreateModelMixin
 from service.models import ServiceUser
+from service.serializers import UserSerializer
 
-"""
-    Bu Api TestifyHub ga birinchi bor tashfif buyurgan foydalanuvchilarni ro'yxatga olish uchun.
-"""
+url = 'https://www.figma.com/design/YoMfTtCPqjygX9Jnx0ylBK/testify-hub?node-id=0-1&p=f&t=izjTGeQNzDX9hdOu-0'
 
 
-class ServiceTestUserView(APIView):
+class ServiceTestUserView(GenericAPIView, CreateModelMixin):
+    queryset = ServiceUser.objects.all()
+    serializer_class = UserSerializer
 
-    def post(self, request):
-        user_name = ServiceUser.objects.latest('id')
-        user_id = user_name.id
-        user_n = f'AA{user_id+1111}'
-        user_i = int(user_id) + 1
-        serializer = ServiceUser(name=user_n)
-        serializer.save()
-        return Response({'id': user_i, 'name': user_n}, status=200)
-        
+    def post(self, request, *args, **kwargs):
+        user_name = request.data.get('user_name')
+        if ServiceUser.objects.filter(user_name=user_name).exists():
+            return Response(
+                {"error": "User with this username already exists."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return self.create(request, *args, **kwargs)

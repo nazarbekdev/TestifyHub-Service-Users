@@ -5,6 +5,7 @@ class ServiceUser(models.Model):
     name = models.CharField(max_length=255)
     limit = models.IntegerField(default=50)
     status = models.BooleanField(default=False)
+    user_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -15,8 +16,10 @@ class BotUser(models.Model):
     name = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255, blank=True, null=True)
     telegram_id = models.BigIntegerField()
-    limit = models.IntegerField(default=5)
-    checked_file = models.IntegerField(default=0)
+    referral_link = models.CharField(max_length=255, blank=True, null=True)
+    invited_by = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
+    balans = models.IntegerField(default=3000)
+    order = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -178,3 +181,29 @@ class Key(models.Model):
 
     def __str__(self):
         return f"{self.id} Keys"
+
+
+class Fanlar(models.Model):
+    nomi = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.nomi
+
+    class Meta:
+        verbose_name = 'Fanlar'
+        verbose_name_plural = 'Fanlar'
+
+
+class OTM2025(models.Model):
+    yonalish_kodi = models.IntegerField()
+    yonalish_nomi = models.CharField(max_length=255)
+    fan1 = models.ForeignKey(Fanlar, on_delete=models.CASCADE, related_name='fan1_kodi')
+    fan2 = models.ForeignKey(Fanlar, on_delete=models.CASCADE, related_name='fan2_kodi')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.yonalish_nomi
+
+    class Meta:
+        verbose_name = 'OTM2025'
+        verbose_name_plural = 'OTM2025'

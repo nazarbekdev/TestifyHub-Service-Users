@@ -1,10 +1,9 @@
 from rest_framework import serializers
 from service.models import Document, Subject, GenerateTest, Language, ServiceUser, CheckSheet, GenerateTestData, \
-    DatabaseType, TitulUpload, CheckSheetResult
-from service.models import UserFile, BotUser
+    DatabaseType, TitulUpload, CheckSheetResult, OTM2025, UserFile, BotUser
 
 
-class CamTestUserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = ServiceUser
         fields = '__all__'
@@ -15,7 +14,6 @@ class BotUserSerializer(serializers.ModelSerializer):
         model = BotUser
         fields = '__all__'
         # read_only_fields = ('checked_file',)
-
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -87,4 +85,10 @@ class DatabaseTypeSerializer(serializers.ModelSerializer):
 class TitulUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = TitulUpload
+        fields = '__all__'
+
+
+class OTM2025Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = OTM2025
         fields = '__all__'

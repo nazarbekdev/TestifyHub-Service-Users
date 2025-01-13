@@ -17,3 +17,4 @@ from .user_checked_sheet_files_dwn import UserCheckedFilesView
 from .bot_user import BotUserView
 from .bot_user_info import BotUserInfo
 from .bot_user_patch import BotUserPatchView
+from .yonalishlar2025 import YonalishView

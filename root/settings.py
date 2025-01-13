@@ -30,12 +30,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 'cors headers',
     'service',
     'rest_framework',
     'drf_yasg'
 ]
 
 MIDDLEWARE = [
+    # 'cors headers.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -44,6 +46,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS_ALLOWED_ORIGINS = [
+#     'https://uzcamtest.site',  # Frontend domeningiz
+# ]
 
 ROOT_URLCONF = 'root.urls'
 

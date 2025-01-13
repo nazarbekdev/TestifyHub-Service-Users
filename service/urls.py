@@ -3,7 +3,7 @@ from .views import (GenerateTestView, ServiceTestUserView, DownloadFileAPIView, 
                     GenerateTestDefaultKey, UploadDocumentView, UploadFileWithImageView, LanguagesView, SubjectsView,
                     UserInfo, CheckSheetView, DatabaseTypeView, DownloadTitulView, TitulUploadAPIView,
                     UserTestFilesView, UserCheckedFilesView, BotUserView, BotUserInfo,
-                    BotUserPatchView)
+                    BotUserPatchView, YonalishView)
 
 urlpatterns = [
     path('subjects', SubjectsView.as_view(), name='subject'),  # mobile
@@ -25,4 +25,5 @@ urlpatterns = [
     path('bot-user', BotUserView.as_view(), name='bot_user'),  # bot
     path('bot-user-info/<int:telegram_id>', BotUserInfo.as_view(), name='bot_user_info'),  # bot
     path('bot-user-patch/<int:telegram_id>', BotUserPatchView.as_view(), name='bot_user_patch'),  # bot
+    path('yonalish/<str:pk>', YonalishView.as_view(), name='yonalish'),  # bot
 ]

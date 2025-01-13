@@ -1,7 +1,7 @@
 from django.contrib import admin
 from service.models import (Document, Question, Subject, Language, GenerateTest, ServiceUser, AnswerTest, UserFile,
                             Key, CheckSheet, CheckSheetResult, DatabaseType, GenerateTestData, TestControl,
-                            SubjectCategory, BotUser)
+                            SubjectCategory, BotUser, OTM2025, Fanlar)
 
 
 class LanguageAdmin(admin.ModelAdmin):
@@ -80,8 +80,19 @@ class GenerateTestDataAdmin(admin.ModelAdmin):
 
 
 class BotUserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'user_name', 'telegram_id', 'limit', 'checked_file', 'created_at')
+    list_display = ('id', 'name', 'user_name', 'telegram_id', 'balans', 'order', 'referral_link', 'invited_by', 'created_at')
     # readonly_fields = ('checked_file', 'telegram_id', 'user_name')
+
+
+class OTM2025Admin(admin.ModelAdmin):
+    list_display = ('id', 'yonalish_kodi', 'yonalish_nomi', 'fan1', 'fan2', 'created_at')
+    list_filter = ('fan1', 'fan2')
+    search_fields = ('yonalish_kodi', 'yonalish_nomi')
+
+
+class FanlarAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nomi')
+    search_fields = ('nomi',)
 
 
 admin.site.register(Key, KeyAdmin)
@@ -100,3 +111,5 @@ admin.site.register(DatabaseType, DatabaseTypeAdmin)
 admin.site.register(TestControl, TestControlAdmin)
 admin.site.register(CheckSheetResult, CheckSheetResultAdmin)
 admin.site.register(BotUser, BotUserAdmin)
+admin.site.register(OTM2025, OTM2025Admin)
+admin.site.register(Fanlar, FanlarAdmin)
