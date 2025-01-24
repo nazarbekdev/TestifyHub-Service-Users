@@ -1,7 +1,7 @@
 from django.contrib import admin
 from service.models import (Document, Question, Subject, Language, GenerateTest, ServiceUser, AnswerTest, UserFile,
                             Key, CheckSheet, CheckSheetResult, DatabaseType, GenerateTestData, TestControl,
-                            SubjectCategory, BotUser, OTM2025, Fanlar)
+                            SubjectCategory, BotUser, OTM2025, Fanlar, BlokTest,Natijalar)
 
 
 class LanguageAdmin(admin.ModelAdmin):
@@ -95,6 +95,22 @@ class FanlarAdmin(admin.ModelAdmin):
     search_fields = ('nomi',)
 
 
+class BlokTestAdmin(admin.ModelAdmin):
+    list_display = ("id", "ism_familiya", "masked_phone", "viloyat", "fan1", "fan2", "rejalashtirilgan_vaqt", "status", "created_at")
+
+    def masked_phone(self, obj):
+        return obj.telefon_raqam[:-5] + "** **"
+
+    masked_phone.short_description = "Telefon raqam"
+
+    # Tahrirlash sahifasida telefon raqam to‘liq ko‘rinishi uchun
+    fields = ("telegram_id", "ism_familiya", "telefon_raqam", "viloyat", "fan1", "fan2", "rejalashtirilgan_vaqt", "status")
+
+
+class NatijalarAdmin(admin.ModelAdmin):
+    list_display = ('id', 'ism', 'viloyat', 'blok1', 'blok2', 'majburiy', 'fan1', 'fan2', 'ball',  'created_at')
+
+
 admin.site.register(Key, KeyAdmin)
 admin.site.register(ServiceUser, ServiceUserAdmin)
 admin.site.register(Subject, SubjectAdmin)
@@ -113,3 +129,5 @@ admin.site.register(CheckSheetResult, CheckSheetResultAdmin)
 admin.site.register(BotUser, BotUserAdmin)
 admin.site.register(OTM2025, OTM2025Admin)
 admin.site.register(Fanlar, FanlarAdmin)
+admin.site.register(BlokTest, BlokTestAdmin)
+admin.site.register(Natijalar, NatijalarAdmin)

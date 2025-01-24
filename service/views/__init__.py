@@ -18,3 +18,8 @@ from .bot_user import BotUserView
 from .bot_user_info import BotUserInfo
 from .bot_user_patch import BotUserPatchView
 from .yonalishlar2025 import YonalishView
+from .block_test import BlockTestView
+from .block_test_get import BlockTestInfo
+from .block_test_all import BlockTestAll
+from .block_test_patch import BlockTestPatchView
+from .natijalar_post import NatijalarPostView

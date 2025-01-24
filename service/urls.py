@@ -3,7 +3,8 @@ from .views import (GenerateTestView, ServiceTestUserView, DownloadFileAPIView, 
                     GenerateTestDefaultKey, UploadDocumentView, UploadFileWithImageView, LanguagesView, SubjectsView,
                     UserInfo, CheckSheetView, DatabaseTypeView, DownloadTitulView, TitulUploadAPIView,
                     UserTestFilesView, UserCheckedFilesView, BotUserView, BotUserInfo,
-                    BotUserPatchView, YonalishView)
+                    BotUserPatchView, YonalishView, BlockTestView, BlockTestInfo, BlockTestAll,
+                    BlockTestPatchView, NatijalarPostView)
 
 urlpatterns = [
     path('subjects', SubjectsView.as_view(), name='subject'),  # mobile
@@ -26,4 +27,9 @@ urlpatterns = [
     path('bot-user-info/<int:telegram_id>', BotUserInfo.as_view(), name='bot_user_info'),  # bot
     path('bot-user-patch/<int:telegram_id>', BotUserPatchView.as_view(), name='bot_user_patch'),  # bot
     path('yonalish/<str:pk>', YonalishView.as_view(), name='yonalish'),  # bot
+    path('block-test', BlockTestView.as_view(), name='block_test'),  # bot
+    path('block-test-info/<int:telegram_id>', BlockTestInfo.as_view(), name='block_test_info'),  # bot
+    path('block-test-all', BlockTestAll.as_view(), name='block_test'),  # bot
+    path('block-test-patch/<int:telegram_id>', BlockTestPatchView.as_view(), name='block_test_patch'),  # bot
+    path('natijalar', NatijalarPostView.as_view(), name='natijalar'),  # bot
 ]

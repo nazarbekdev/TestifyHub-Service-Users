@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from service.models import Document, Subject, GenerateTest, Language, ServiceUser, CheckSheet, GenerateTestData, \
-    DatabaseType, TitulUpload, CheckSheetResult, OTM2025, UserFile, BotUser
+    DatabaseType, TitulUpload, CheckSheetResult, OTM2025, UserFile, BotUser, BlokTest, Natijalar
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -92,3 +92,16 @@ class OTM2025Serializer(serializers.ModelSerializer):
     class Meta:
         model = OTM2025
         fields = '__all__'
+
+
+class BlokTestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlokTest
+        fields = '__all__'
+
+
+class NatijalarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Natijalar
+        fields = '__all__'
+         

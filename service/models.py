@@ -207,3 +207,48 @@ class OTM2025(models.Model):
     class Meta:
         verbose_name = 'OTM2025'
         verbose_name_plural = 'OTM2025'
+
+
+class BlokTest(models.Model):
+    telegram_id = models.BigIntegerField()
+    ism_familiya = models.CharField(max_length=255)
+    telefon_raqam = models.CharField(max_length=255)
+    viloyat = models.CharField(max_length=255)
+    fan1 = models.CharField(max_length=255)
+    fan2 = models.CharField(max_length=255)
+    rejalashtirilgan_vaqt = models.CharField(max_length=255)
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('kutmoqda', '🟡 Kutmoqda'),
+            ('yechmoqda', '🟠 Yechmoqda'),
+            ('yakunlandi', '🟢 Yakunlandi'),
+            ('topshirmadi', '🔴 Topshirmadi'),
+        ],
+        default='kutmoqda'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.ism_familiya
+
+
+class Natijalar(models.Model):
+    telegram_id = models.BigIntegerField()
+    ism = models.CharField(max_length=255)
+    viloyat = models.CharField(max_length=255)
+    blok1 = models.CharField(max_length=255)
+    blok2 = models.CharField(max_length=255)
+    majburiy = models.IntegerField()
+    fan1 = models.IntegerField()
+    fan2 = models.IntegerField()
+    ball = models.FloatField()
+    javoblari = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Natijalar'
+        verbose_name_plural = 'Natijalar'
+
+    def __str__(self):
+        return self.ism
