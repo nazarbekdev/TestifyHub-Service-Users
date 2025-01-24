@@ -109,6 +109,8 @@ class BlokTestAdmin(admin.ModelAdmin):
 
 class NatijalarAdmin(admin.ModelAdmin):
     list_display = ('id', 'ism', 'viloyat', 'blok1', 'blok2', 'majburiy', 'fan1', 'fan2', 'ball',  'created_at')
+    list_filter = ('blok1', 'blok2', 'viloyat')
+    date_hierarchy = 'created_at'
 
 
 admin.site.register(Key, KeyAdmin)
