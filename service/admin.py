@@ -99,6 +99,8 @@ class FanlarAdmin(admin.ModelAdmin):
 
 class BlokTestAdmin(admin.ModelAdmin):
     list_display = ("id", "ism_familiya", "masked_phone", "viloyat", "fan1", "fan2", "rejalashtirilgan_vaqt", "status", "created_at")
+    list_filter = ('ism_familiya', 'viloyat', 'fan1', 'fan2', 'rejalashtirilgan_vaqt', 'status')
+    date_hierarchy = 'created_at'
 
     def masked_phone(self, obj):
         return obj.telefon_raqam[:-5] + "** **"
