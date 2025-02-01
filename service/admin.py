@@ -82,6 +82,8 @@ class GenerateTestDataAdmin(admin.ModelAdmin):
 class BotUserAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'user_name', 'telegram_id', 'balans', 'order', 'referral_link', 'invited_by', 'created_at')
     # readonly_fields = ('checked_file', 'telegram_id', 'user_name')
+    list_filter = ('name', 'user_name', 'telegram_id', 'invited_by')
+    date_hierarchy = 'created_at'
 
 
 class OTM2025Admin(admin.ModelAdmin):
