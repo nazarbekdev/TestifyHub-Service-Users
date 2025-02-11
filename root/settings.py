@@ -33,12 +33,14 @@ INSTALLED_APPS = [
     # 'cors headers',
     'service',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     # 'cors headers.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,6 +52,8 @@ MIDDLEWARE = [
 # CORS_ALLOWED_ORIGINS = [
 #     'https://uzcamtest.site',  # Frontend domeningiz
 # ]
+
+CORS_ALLOW_ALL_ORIGINS = True  # Barcha domenlarga ruxsat berish
 
 ROOT_URLCONF = 'root.urls'
 
