@@ -4,7 +4,7 @@ from .views import (GenerateTestView, ServiceTestUserView, DownloadFileAPIView, 
                     UserInfo, CheckSheetView, DatabaseTypeView, DownloadTitulView, TitulUploadAPIView,
                     UserTestFilesView, UserCheckedFilesView, BotUserView, BotUserInfo,
                     BotUserPatchView, YonalishView, BlockTestView, BlockTestInfo, BlockTestAll,
-                    BlockTestPatchView, NatijalarPostView)
+                    BlockTestPatchView, NatijalarPostView, BotUsersAll)
 
 urlpatterns = [
     path('subjects', SubjectsView.as_view(), name='subject'),  # mobile
@@ -32,4 +32,5 @@ urlpatterns = [
     path('block-test-all', BlockTestAll.as_view(), name='block_test'),  # bot
     path('block-test-patch/<int:telegram_id>', BlockTestPatchView.as_view(), name='block_test_patch'),  # bot
     path('natijalar', NatijalarPostView.as_view(), name='natijalar'),  # bot
+    path('bot-users-all', BotUsersAll.as_view(), name='bot_user_all'),  # bot
 ]
