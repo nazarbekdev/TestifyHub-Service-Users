@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
     # 'cors headers',
     'service',
+    'quiz',
     'rest_framework',
     'drf_yasg',
     'corsheaders',

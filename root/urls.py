@@ -20,9 +20,11 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
     authentication_classes=(JWTAuthentication,),
 )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('service.urls')),
+    path('api/quiz/v1/', include('quiz.urls')),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/api.json/', schema_view.without_ui(cache_timeout=0), name='schema-swagger-ui'),
